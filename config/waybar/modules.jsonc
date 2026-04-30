@@ -1,0 +1,464 @@
+/* ─────────────── CORE ─────────────────────────────────────────────────────── */
+{
+    "custom/username": {
+        "format": " {}",
+        "exec": "whoami",
+        "on-click": "fuzzel"
+    },
+    "hyprland/window": {
+        "format": " fedora",
+        "tooltip": false,
+        "on-click-right": "fuzzel",
+        "format-alt": "{title}",
+        "max-length": 30,
+        "separate-outputs": false,
+        "rewrite": {
+            "^.*( — Zen Browser|Zen Browser)$": "󰈹 Zen",
+            "^.*( — Firefox|Firefox)$": "󰈹 Firefox",
+            "^.*( — Brave|Brave)$": " Brave",
+            "^.*( — Chromium|Chromium)$": "󰈹 Chromium",
+            "^.*v( .*|$)": " Neovim",
+            "^.*~$": "󰄛 Terminal",
+            "^.*(- Spotify|Spotify)$": "󰏤 Spotify",
+            "^.*(- Code|Code)$": "󰈹 VSCode",
+            "^.*(- Cursor|Cursor)$": "󰈹 Cursor",
+            "(.*) - ": " Empty",
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+        },
+        "format-icons": {
+            /*
+      "1":  "",
+      "2":  "󰖟",
+      "3":  "󰅩",
+      "4":  "󰞶",
+      "5":  "",
+      "6":  "󰓇",
+      "7":  "",
+      "8":  "󰕧",
+      "9":  "",
+      "10": "󰙯"
+
+      "1":  "󰊠",
+      "2":  "󰊠",
+      "3":  "󰊠",
+      "4":  "󰊠",
+      "5":  "󰊠",
+      "6":  "󰊠",
+      "7":  "󰊠",
+      "8":  "󰊠",
+      "9":  "󰊠",
+      "10": "󰊠"
+      */
+            // "1": "1",
+            // "2": "2",
+            // "3": "3",
+            // "4": "4",
+            // "5": "5",
+            // "6": "6",
+            // "7": "7",
+            // "8": "8",
+            // "9": "9",
+            // "10": "0",
+            "active": "▆",
+            "empty": "▁",
+            "default": "▄",
+        },
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A | %d.%m.%Y}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#7c5fa9'><b>{}</b></span>",
+                "days": "<span font='9' color='#eeece3'>{}</span>",
+                "weeks": "<span color='#3e2e8a'>{:%U}</span>",
+                "weekdays": "<span color='#6c5fa9'>{}</span>",
+                "today": "<span color='#6c5fa9'><i><b>{}</b></i></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+        }
+    },
+    /* ─────────────── GRUPOS PRINCIPALES ──────────────────────────────────────── */
+    "group/info": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "custom/arrow-left",
+            "custom/playerlabel",
+            "custom/updates"
+        ]
+    },
+    "group/system-info": {
+        "orientation": "inherit",
+        "click-to-reveal": true,
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "custom/arrow-right",
+            "cpu",
+            "memory",
+            "disk",
+        ],
+    },
+    "group/video": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/arrow-left",
+            "custom/record",
+            "custom/section",
+            "custom/stop",
+            "group/control-center",
+        ],
+    },
+    "group/system": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/arrow-left",
+            "group/control-center"
+        ],
+    },
+    "group/control-center": {
+        "orientation": "inherit",
+        "modules": [
+            "network",
+            "group/audio",
+            "power-profiles-daemon",
+        ],
+    },
+    "group/audio": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio"
+        ], // "pulseaudio/slider"
+    },
+    "group/connection": {
+        "orientation": "inherit",
+        "modules": [
+            "group/network"
+        ],
+    },
+    "group/network": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 10000,
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "network"
+        ],
+    },
+    "group/bluetooth": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "bluetooth",
+            "bluetooth#status"
+        ],
+    },
+    "group/utils": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/arrow-right",
+            "tray",
+            "custom/notifications",
+            "custom/weather",
+        ],
+    },
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon"
+        ],
+    },
+    /* ─────────────── MÓDULOS DE SISTEMA ─────────────────────────────────────── */
+    "cpu": {
+        "format": "󰘚 {usage}󱉸",
+    },
+    "memory": {
+        "format": " {:2}󱉸",
+    },
+    "disk": {
+        "interval": 600,
+        "format": "󰆼 {percentage_used}󱉸",
+        "path": "/",
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15,
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "<b>{icon}</b> {capacity}",
+        "format-full": "<span color='#82A55F'><b>{icon}</b></span> full",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{timeTo} {capacity} % | {power} W",
+    },
+    "pulseaudio": {
+        "format": "{icon}{volume}",
+        "format-bluetooth": "{icon}{volume}%",
+        "format-muted": "󰖁",
+        "tooltip": false,
+        "format-icons": {
+            "headphones": " ",
+            "handsfree": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                "󰕾 "
+            ]
+        },
+        "on-click": "bash $HOME/.config/scripts/waybar/toggle_sound.sh",
+        "on-click-middle": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +3%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -3%",
+        "smooth-scrolling-threshold": 1,
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "rotate": 0,
+        "on-click": "bash $HOME/.config/scripts/waybar/toggle_mic.sh",
+        "format-source": "<span font='12'>󰍬</span>",
+        "format-source-muted": "<span font='12'>󰍭</span>",
+        "on-click-right": "bash $HOME/.config/waybar/scripts/toggleMic.sh",
+        "tooltip-format": "󰍬 {source_desc} | {source_volume}%",
+        "scroll-step": 5,
+    },
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "actions": {
+            "on-click-right": "mode",
+        },
+    },
+    "network": {
+        "format": "{icon} ",
+        "format-icons": {
+            "wifi": [
+                "󰤨 "
+            ],
+            "ethernet": [
+                "󰈁 "
+            ],
+            "disconnected": [
+                " "
+            ]
+        },
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰈁 ",
+        "format-disconnected": "󰖪 ",
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format": "{ipaddr}",
+        "tooltip-format-wifi": "<b>{essid} ({signalStrength}%) \n{ipaddr} | {frequency} MHz{icon}</b>",
+        "tooltip-format-ethernet": "{ifname} 󰈀\n{ipaddr} | {frequency} MHz{icon}",
+        "tooltip-format-disconnected": "Not Connected to any type of Network",
+        "on-click": "hyprctl dispatch exec '[float] ghostty -e sh -c \"export NEWT_COLORS=$(<~/.config/nmtui/palette); nmtui\"'"
+    },
+    "network#speed": {
+        "format": "{bandwidthDownBits} ",
+        "interval": 5,
+        "tooltip": false,
+    },
+    "bluetooth": {
+        "format": "",
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-disabled": "",
+        "format-connected": "",
+        "tooltip": false,
+        "on-click": "bash ~/.config/rofi/bluetooth/bluetooth.sh",
+    },
+    "bluetooth#status": {
+        "format-connected": "<b>{num_connections}</b>",
+        "format-connected-battery": "<small><b>{device_battery_percentage}%</b></small>",
+        "tooltip-format": "{controller_alias} {controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias} {controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} {device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_address} {device_battery_percentage}%",
+        "on-click": "rofi-bluetooth -config ~/.config/rofi/menu.d/network.rasi -i",
+    },
+    /* ─────────────── MODS PERSONALIZADOS ────────────────────────────────────── */
+    //"custom/arrow-left":  { "format": "󰁒", "tooltip": false },
+    //"custom/arrow-right": { "format": "󰁙", "tooltip": false },
+    "custom/arrow-left": {
+        "format": "&lt;",
+        "tooltip": false,
+    },
+    "custom/arrow-right": {
+        "format": ">",
+        "tooltip": false,
+    },
+    "custom/updates": {
+        "format": "󱧕 {}",
+        "tooltip": true,
+        "interval": 43200, // 12 h
+        "exec": "~/.config/hypr/scripts/check_updates.sh",
+        "return-type": "json",
+    },
+    "custom/playerlabel": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 50,
+        "exec": "playerctl -p spotify metadata --format '{\"text\": \"{{artist}} : {{markup_escape(title)}}\", \"tooltip\": \"Spotify : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "bash -c 'player=$(playerctl -l | grep -E \"spotify|cider\" | head -n 1); playerctl -p \"$player\" previous'",
+        "on-click-middle": "bash -c 'player=$(playerctl -l | grep -E \"spotify|cider\" | head -n 1); playerctl -p \"$player\" play-pause'",
+        "on-click-right": "bash -c 'player=$(playerctl -l | grep -E \"spotify|cider\" | head -n 1); playerctl -p \"$player\" next'",
+        "tooltip": false,
+    },
+    "custom/record": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Record Screen",
+        "on-click": "bash ~/.config/hypr/scripts/record.sh fullscreen",
+    },
+    "custom/stop": {
+        "format": "󰻃",
+        "tooltip": true,
+        "tooltip-format": "Stop Recording",
+        "on-click": "bash ~/.config/hypr/scripts/record.sh stop",
+    },
+    "custom/section": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Record Section",
+        "on-click": "bash ~/.config/hypr/scripts/record.sh section",
+    },
+    "custom/notifications": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+        "tooltip": false,
+        "format-icons": {
+            "notification": "󱅫",
+            "dnd-notification": "󰂛",
+            "none": "󰂚",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰂛",
+        },
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --custom-indicator '{ICON}{temp_C}°C'",
+        "return-type": "json",
+    },
+    "custom/theme-switcher": {
+        "format": "󰏘",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/toggle_theme.sh",
+    },
+    /* ─────────────── TASKBAR Y POWER PROFILES ───────────────────────────────── */
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "all-outputs": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "wofi",
+            "rofi",
+            "swaylock"
+        ]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "format-icons": {
+            "default": " power",
+            "balanced": "󰚀 equal",
+            "power-saver": "󱈑 peace"
+        }
+    },
+    "tray": {
+        "spacing": 8
+    },
+    "seperator": {
+        "format": "    "
+    }
+}

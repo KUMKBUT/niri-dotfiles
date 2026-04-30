@@ -1,0 +1,26 @@
+{
+    "include": "~/.config/waybar/modules.jsonc",
+    "width": 1220,
+    "margin-top": 2,
+    "height": 38,
+    "spacing": 10,
+    "margin-bottom": 7,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "custom/username",
+        "group/system-info"
+    ],
+    "modules-center": [
+        "group/info",
+        "seperator",
+        "hyprland/workspaces",
+        "seperator",
+        "group/utils"
+    ],
+    "modules-right": [
+        //"group/control-center",
+        "group/system",
+        "clock",
+        "battery"
+    ]
+}

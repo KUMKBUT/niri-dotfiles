@@ -1,0 +1,45 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+    "modules-left": ["clock", "battery"],
+    "modules-center": ["niri/workspaces"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "tray"],
+
+    "niri/workspaces": {
+    "format": "{icon}",
+    "hide-empty": true,
+    "all-outputs": true,
+    "format-icons": {
+        "main": "󰋜", // Иконка дома
+        "dev": "",  // Иконка кода
+        "default": "" 
+    }
+},
+
+    "clock": {
+        "format": "  {:%H:%M:%S  󰃭  %a %d}",
+        "interval": 1
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": ["", "", ""]
+    }
+}
