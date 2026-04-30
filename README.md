@@ -64,7 +64,7 @@ This setup relies heavily on Vim-like navigation to minimize mouse usage:
 | `Mod + Q` | Close Active Window |
 | `Mod + H/J/K/L` | Navigate windows (Vim-style) |
 | `Mod + Shift + R` | Reload Niri Configuration |
-| `Mod + D` | Application Launcher |
+| `Mod + Space` | Application Launcher |
 
 ---
 
