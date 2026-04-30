@@ -1,0 +1,38 @@
+[window]
+padding = { x = 12, y = 12 }
+opacity = 0.8  # 0.6 действительно может быть слишком прозрачным, 0.8 — золотая середина
+# В niri размытие (blur) настраивается самим композитором, параметр в alacritty игнорируется
+
+[font]
+# Используем JetBrainsMono, как на твоих референсах
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 11.0
+
+[cursor]
+style = { shape = "Beam", blinking = "On" } # "Beam" (палочка) выглядит более современно
+blink_interval = 500
+
+[colors.primary]
+# Меняем Tokyo Night на чистый черно-белый стиль под твой сетап
+background = "#1a1a1a" 
+foreground = "#ffffff"
+
+[colors.normal]
+black   = "#1a1a1a"
+red     = "#ffffff"
+green   = "#ffffff"
+yellow  = "#ffffff"
+blue    = "#ffffff"
+magenta = "#ffffff"
+cyan    = "#ffffff"
+white   = "#ffffff"
+
+[colors.bright]
+black   = "#444444"
+red     = "#ffffff"
+green   = "#ffffff"
+yellow  = "#ffffff"
+blue    = "#ffffff"
+magenta = "#ffffff"
+cyan    = "#ffffff"
+white   = "#ffffff"

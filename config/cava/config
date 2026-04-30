@@ -1,0 +1,11 @@
+[color]
+# Используем градиент от серого к белому
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#444444'
+gradient_color_2 = '#ffffff'
+
+[smoothing]
+# Чтобы столбцы двигались плавно, как на видео
+monstercat = 1
+waves = 1

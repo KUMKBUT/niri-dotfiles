@@ -1,0 +1,59 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(26, 27, 38, 0.1); /* Полупрозрачный темный фон */
+    color: #ffffff;
+    border-radius: 12px; /* Скругление углов всей панели */
+}
+
+#workspaces {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 4px 8px;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+#workspaces button {
+    padding: 0 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(.55,-0.04,.42,1);
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    /* Тонкая белая полоска снизу для акцента */
+    box-shadow: inset 0 -2px 0 0 #ffffff;
+}
+
+/* Исправление ошибки: скрываем пустые через нулевой размер */
+#workspaces button.empty {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#clock, #battery, #pulseaudio, #network, #cpu, #memory, #tray {
+    padding: 0 12px;
+    margin: 4px 2px;
+}
+
+/* Эффект разделения блоков как на скриншоте */
+#clock {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px 0 0 8px;
+    margin-left: 6px;
+}
+
+#battery {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0 8px 8px 0;
+    margin-right: 10px;
+}
