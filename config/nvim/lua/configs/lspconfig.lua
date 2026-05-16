@@ -1,9 +1,18 @@
--- Загружаем базовые настройки NvChad
+local original_notify = vim.notify
+vim.notify = function(msg, level, opts)
+  if msg and type(msg) == "string" and msg:match("lspconfig") then
+    return
+  end
+  return original_notify(msg, level, opts)
+end
+
 local on_attach = require("nvchad.configs.lspconfig").on_attach
+
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then return end
 
 -- Список серверов, которые ты хочешь запустить
 local servers = { "html", "cssls" }

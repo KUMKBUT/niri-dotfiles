@@ -15,8 +15,6 @@
     "hide-empty": true,
     "all-outputs": true,
     "format-icons": {
-        "main": "󰋜", // Иконка дома
-        "dev": "",  // Иконка кода
         "default": "" 
     }
 },
@@ -35,6 +33,17 @@
         "format-wifi": "",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰖪"
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 2,
+        "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G"
     },
 
     "pulseaudio": {
